@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Register for Coding Conf</title>
+	<link rel="icon" type="image/png" href="../assets/favicon-32x32.png">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<!-- Page header which includes event title and navigation links -->
+	<header>
+		<h1>Coding Conf</h1>
+		<nav aria-label="Main navigation">
+			<a href="index.html" >Home</a>
+			<a href="login.html" aria-current="page">Register</a>
+		</nav>
+	</header>
+
+	<main>
+		<!-- Small instructions for the page shown -->
+		<section>
+			<h2>Coding Conf Register</h2>
+			<p>Register for Coding Conf by filling in all that is below to generate your ticket and get started.</p>
+		</section>  
+
+		<section> 
+			<!-- Form block that the user will fill in their information to register -->
+			<form id="registration-form" action="#" method="post" novalidate>
+
+				<!-- Field for user to enter their full name -->
+				<div class="field">
+					<label for="full-name">Full name</label>
+					<input type="text" id="full-name" name="fullName" placeholder="Mark Brown" aria-describedby="full-name-error">
+					<p id="full-name-error" class="error" aria-live="polite"></p>
+				</div>
+
+				<!-- Field for user to enter their email address -->
+				<div class="field">
+					<label for="email">Email</label>
+					<input type="email" id="email" name="email" placeholder="name123@email.domain" aria-describedby="email-error">
+					<p id="email-error" class="error" aria-live="polite"></p>
+				</div>
+
+				<!-- Field for user to enter their GitHub handle -->
+				<div class="field">
+					<label for="github">GitHub username</label>
+					<input type="text" id="github" name="gitHub" placeholder="@yourusername" aria-describedby="github-error">
+					<p id="github-error" class="error" aria-live="polite"></p>
+				</div>
+
+				<!-- Field for the user to upload their profile picture -->
+				<div class="field">
+					<label for="profile-picture">Profile picture</label>
+					<input type="file" id="profile-picture" name="profilePicture" accept="image/png, image/jpeg" aria-describedby="profile-picture-error">
+					<p id="profile-picture-error" class="error" aria-live="polite"></p>
+				</div>
+
+				<!-- Submit button to generate user's ticket -->
+				<button type="submit">Generate Your Ticket</button>
+
+			</form>
+		</section>
+	</main>
+
+	<!-- Copyright Line -->
+	<footer>
+		<p>&copy; 2026 Coding Conf. All Rights Reserved</p>
+	</footer>
+
+	<script src="../js/validation.js"></script>
+</body>
+</html>

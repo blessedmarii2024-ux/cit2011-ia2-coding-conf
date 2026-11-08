@@ -1,0 +1,231 @@
+/* The style.css which includes shared styles for index, login and ticket HTML. */
+
+/*Padding and borders */
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+:root {
+	/* Colours from the style guide provided */
+	--neutral-0: hsl(0, 0%, 100%);
+	--neutral-300: hsl(252, 6%, 83%);
+	--neutral-500: hsl(245, 15%, 58%);
+	--neutral-700: hsl(245, 19%, 35%);
+	--neutral-900: hsl(248, 70%, 10%);
+	--orange-500: hsl(7, 88%, 67%);
+	--orange-700: hsl(7, 71%, 60%);
+
+	--heading-gradient: linear-gradient(90deg, hsl(7, 86%, 67%), hsl(0, 0%, 100%));
+
+	--space-s: 0.5rem;
+	--space-m: 1rem;
+	--space-l: 2rem;
+	--text-body: 1.25rem;
+	--heading-size: clamp(1.75rem, 5vw, 3.5rem);
+	--radius: 1rem;
+}
+
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	background-color: var(--neutral-900);
+	background-image: url("../assets/background-mobile.png");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	color: var(--neutral-0);
+	font-family: Inconsolata, monospace;
+	font-size: var(--text-body);
+	line-height: 1.5;
+}
+
+:where(h1, h2, h3) {
+	margin-block: var(--space-m);
+	line-height: 1.2;
+}
+
+h1 {
+	font-size: var(--heading-size);
+	background-image: var(--heading-gradient);
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+}
+
+a {
+	color: var(--orange-700);
+	transition: color 0.3s ease;
+}
+
+a:is(:hover, :focus-visible) {
+	color: var(--orange-500);
+	text-decoration: underline;
+}
+
+:is(a, input, button):focus-visible {
+	outline: 3px solid var(--orange-500);
+	outline-offset: 3px;
+}
+
+:is(header, nav, footer) {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--space-m);
+	padding: var(--space-m);
+}
+
+header {
+	justify-content: space-between;
+}
+
+header nav {
+	padding: 0;
+}
+
+
+footer {
+	justify-content: center;
+	text-align: center;
+	color: var(--neutral-300);
+}
+
+main {
+	flex: 1;
+	width: 100%;
+	max-width: 60rem;
+	margin: 0 auto;
+	padding: var(--space-m);
+}
+
+.event-photo {
+	float: right;
+	max-width: 40%;
+	margin-left: var(--space-m);
+	border-radius: var(--radius);
+}
+
+main:has(.event-photo) {
+	overflow: auto;
+}
+
+form {
+	max-width: 30rem;
+	margin: 0 auto;
+}
+
+.field {
+	display: grid;
+	gap: var(--space-s);
+	margin-bottom: var(--space-m);
+	padding: var(--space-s);
+	border-radius: var(--radius);
+}
+
+.field:has(input:focus-visible) {
+	outline: 2px solid var(--orange-500);
+}
+
+input:not([type="file"]) {
+	padding: var(--space-s);
+	border: 1px solid var(--neutral-500);
+	border-radius: var(--radius);
+	background-color: var(--neutral-700);
+	color: var(--neutral-0);
+	font: inherit;
+}
+
+.error {
+	margin: 0;
+	color: var(--orange-500);
+	font-size: 1rem;
+}
+
+button {
+	padding: var(--space-s) var(--space-l);
+	border: none;
+	border-radius: var(--radius);
+	background-color: var(--orange-500);
+	color: var(--neutral-900);
+	font: inherit;
+	font-weight: 700;
+	cursor: pointer;
+	transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:is(:hover, :focus-visible) {
+	background-color: var(--orange-700);
+	transform: translateY(-2px);
+}
+
+article {
+	display: grid;
+	gap: var(--space-m);
+	position: relative;
+	max-width: 40rem;
+	margin: var(--space-l) auto;
+	padding: var(--space-l);
+	padding-top: calc(var(--space-l) * 2);
+	background: hsla(0, 0%, 100%, 0.1);
+	backdrop-filter: blur(10px);
+	border: 1px solid hsla(0, 0%, 100%, 0.3);
+	border-radius: var(--radius);
+}
+
+.ticket-logo {
+	height: 1.5em;
+	margin-right: var(--space-s);
+	vertical-align: middle;
+}
+
+#ticket-serial {
+	position: absolute;
+	top: var(--space-m);
+	right: var(--space-m);
+	margin: 0;
+	color: var(--neutral-300);
+}
+
+#ticket-avatar {
+	width: 8rem;
+	height: 8rem;
+	object-fit: cover;
+	border-radius: 50%;
+	border: 2px solid var(--orange-500);
+}
+
+
+@media (min-width: 600px) {
+	body {
+		background-image: url("../assets/background-tablet.png");
+	}
+
+	article {
+		grid-template-columns: auto 1fr;
+		align-items: center;
+	}
+
+	#ticket-avatar {
+		grid-column: 1;
+		grid-row: 1 / span 4;
+	}
+
+	article > :not(img, #ticket-serial) {
+		grid-column: 2;
+	}
+}
+
+@media (min-width: 950px) {
+	body {
+		background-image: url("../assets/background-desktop.png");
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	* {
+		transition: none;
+	}
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Your Ticket | Coding Conf</title>
+	<link rel="icon" type="image/png" href="../assets/favicon-32x32.png">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<!-- Page title and navigation links back to the other two pages -->
+	<header>
+		<h1>Your Coding Conf Ticket!</h1>
+		<nav aria-label="Main navigation">
+			<a href="index.html">Home</a>
+			<a href="login.html">Register</a>
+		</nav>
+	</header>
+
+	<main>
+		<!-- Message to confirm user has registered with the span being filled in by ticket.js -->
+		<section>
+			<h2>Congrats, <span id="user-name-heading"></span>! Your ticket is ready.</h2>
+		</section>
+
+		<!-- The ticket itself with branding, event details, avatar, name, GitHub handle and serial number -->
+		<article>
+			<h3><img class="ticket-logo" src="../assets/logo-mark.svg" alt="">Coding Conf</h3>
+			<p>October 26, 2026 / Papine, Kgn</p>
+			<img id="ticket-avatar" src="../assets/image-avatar.jpg" alt="Your uploaded profile picture">
+			<p id="ticket-name"></p>
+			<a id="ticket-github" href="#"></a>
+			<p id="ticket-serial"></p>
+		</article>
+	</main>
+
+	<!-- Copyright Line -->
+	<footer>
+		<p>&copy; 2026 Coding Conf. All Rights Reserved</p>
+	</footer>
+
+	<script src="../js/ticket.js"></script>
+</body>
+</html>
